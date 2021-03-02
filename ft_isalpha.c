@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jechoi <jechoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/21 21:23:53 by jechoi            #+#    #+#             */
-/*   Updated: 2020/10/28 18:59:58 by jechoi           ###   ########.fr       */
+/*   Created: 2020/10/21 19:18:46 by jechoi            #+#    #+#             */
+/*   Updated: 2020/10/21 19:52:18 by jechoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+int	ft_str_is_alpha(char *str)
 {
-	unsigned int pos;
-
-	pos = 0;
-	while (src[pos] && pos + 1 < size)
+	if (*str == '\0')
+		return (1);
+	while (*str)
 	{
-		dest[pos] = src[pos];
-		pos++;
+		if (!(*str <= 'z' && *str >= 'a') && !(*str <= 'Z' && *str >= 'A'))
+			return (0);
+		str++;
 	}
-	dest[pos] = '\0';
-	while (src[pos])
-		pos++;
-	return (pos);
+	return (1);
 }

@@ -1,27 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jechoi <jechoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/21 21:23:53 by jechoi            #+#    #+#             */
-/*   Updated: 2020/10/28 18:59:58 by jechoi           ###   ########.fr       */
+/*   Created: 2020/10/28 12:09:11 by jechoi            #+#    #+#             */
+/*   Updated: 2020/10/28 17:47:18 by jechoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+int	is_white_space(char c)
 {
-	unsigned int pos;
+	if (c == ' ' || (9 <= c && c <= 13))
+		return (1);
+	return (0);
+}
 
-	pos = 0;
-	while (src[pos] && pos + 1 < size)
+int	ft_atoi(char *str)
+{
+	int ret;
+	int m_cnt;
+
+	m_cnt = 0;
+	ret = 0;
+	while (is_white_space(*str))
+		str++;
+	while (*str == '-' || *str == '+')
 	{
-		dest[pos] = src[pos];
-		pos++;
+		if (*str == '-')
+			m_cnt++;
+		str++;
 	}
-	dest[pos] = '\0';
-	while (src[pos])
-		pos++;
-	return (pos);
+	while ('0' <= *str && *str <= '9')
+	{
+		ret = (ret * 10) + (*str - '0');
+		str++;
+	}
+	return (m_cnt % 2 ? -ret : ret);
 }

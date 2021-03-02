@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jechoi <jechoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/21 21:23:53 by jechoi            #+#    #+#             */
-/*   Updated: 2020/10/28 18:59:58 by jechoi           ###   ########.fr       */
+/*   Created: 2020/11/01 17:38:23 by jechoi            #+#    #+#             */
+/*   Updated: 2020/11/01 17:55:46 by jechoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
-{
-	unsigned int pos;
+#include <stdlib.h>
 
-	pos = 0;
-	while (src[pos] && pos + 1 < size)
-	{
-		dest[pos] = src[pos];
-		pos++;
-	}
-	dest[pos] = '\0';
-	while (src[pos])
-		pos++;
-	return (pos);
+long long		ft_strlen(char *s)
+{
+	long long ret;
+
+	ret = 0;
+	while (s[ret])
+		ret++;
+	return (ret);
+}
+
+char			*ft_strdup(char *src)
+{
+	char			*ret;
+	long long		idx;
+	long long		len;
+
+	len = ft_strlen(src);
+	ret = (char *)malloc(sizeof(char) * (len + 1));
+	idx = -1;
+	while (++idx < len)
+		ret[idx] = src[idx];
+	ret[idx] = '\0';
+	return (ret);
 }

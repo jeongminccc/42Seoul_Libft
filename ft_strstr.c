@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jechoi <jechoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/21 21:23:53 by jechoi            #+#    #+#             */
-/*   Updated: 2020/10/28 18:59:58 by jechoi           ###   ########.fr       */
+/*   Created: 2020/10/27 13:48:54 by jechoi            #+#    #+#             */
+/*   Updated: 2020/10/28 17:29:33 by jechoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+char	*ft_strstr(char *str, char *to_find)
 {
-	unsigned int pos;
+	char *temp_str;
+	char *temp_find;
 
-	pos = 0;
-	while (src[pos] && pos + 1 < size)
+	if (*to_find == '\0')
+		return (str);
+	while (*str)
 	{
-		dest[pos] = src[pos];
-		pos++;
+		if (*str == *to_find)
+		{
+			temp_str = str;
+			temp_find = to_find;
+			while (*temp_find && *temp_str == *temp_find)
+			{
+				temp_find++;
+				temp_str++;
+			}
+			if (*temp_find == '\0')
+				return (str);
+		}
+		str++;
 	}
-	dest[pos] = '\0';
-	while (src[pos])
-		pos++;
-	return (pos);
+	return (0);
 }
