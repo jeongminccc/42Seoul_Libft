@@ -1,27 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jechoi <jechoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/21 21:23:53 by jechoi            #+#    #+#             */
-/*   Updated: 2020/10/28 18:59:58 by jechoi           ###   ########.fr       */
+/*   Created: 2020/10/28 11:55:33 by jechoi            #+#    #+#             */
+/*   Updated: 2020/10/28 12:08:42 by jechoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
-{
-	unsigned int pos;
+#include <unistd.h>
 
-	pos = 0;
-	while (src[pos] && pos + 1 < size)
+void	recur(int n)
+{
+	char c;
+
+	if (n)
 	{
-		dest[pos] = src[pos];
-		pos++;
+		recur(n / 10);
+		c = '0' + n % 10;
+		write(1, &c, 1);
 	}
-	dest[pos] = '\0';
-	while (src[pos])
-		pos++;
-	return (pos);
+}
+
+void	ft_putnbr(int nb)
+{
+	char c;
+
+	if (nb < 0)
+	{
+		write(1, "-", 1);
+		c = '0' + -(nb % 10);
+		recur(-(nb / 10));
+	}
+	else
+	{
+		c = '0' + (nb % 10);
+		recur(nb / 10);
+	}
+	write(1, &c, 1);
 }

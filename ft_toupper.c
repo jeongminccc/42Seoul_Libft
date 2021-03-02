@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jechoi <jechoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/21 21:23:53 by jechoi            #+#    #+#             */
-/*   Updated: 2020/10/28 18:59:58 by jechoi           ###   ########.fr       */
+/*   Created: 2020/10/21 20:17:52 by jechoi            #+#    #+#             */
+/*   Updated: 2020/10/21 20:29:55 by jechoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+char	*ft_strupcase(char *str)
 {
-	unsigned int pos;
+	int pos;
 
 	pos = 0;
-	while (src[pos] && pos + 1 < size)
+	while (str[pos])
 	{
-		dest[pos] = src[pos];
-		pos++;
+		if ('a' <= str[pos] && str[pos] <= 'z')
+			str[pos] -= 32;
+		++pos;
 	}
-	dest[pos] = '\0';
-	while (src[pos])
-		pos++;
-	return (pos);
+	return (str);
 }

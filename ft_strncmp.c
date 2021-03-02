@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jechoi <jechoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/21 21:23:53 by jechoi            #+#    #+#             */
-/*   Updated: 2020/10/28 18:59:58 by jechoi           ###   ########.fr       */
+/*   Created: 2020/10/27 12:42:03 by jechoi            #+#    #+#             */
+/*   Updated: 2020/10/28 17:27:27 by jechoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
 	unsigned int pos;
 
 	pos = 0;
-	while (src[pos] && pos + 1 < size)
+	while (s1[pos] && s2[pos] && pos < n)
 	{
-		dest[pos] = src[pos];
+		if (s1[pos] != s2[pos])
+			return (s1[pos] - s2[pos]);
 		pos++;
 	}
-	dest[pos] = '\0';
-	while (src[pos])
-		pos++;
-	return (pos);
+	if (pos == n || s1[pos] == s2[pos])
+		return (0);
+	else
+		return (s1[pos] - s2[pos]);
 }
