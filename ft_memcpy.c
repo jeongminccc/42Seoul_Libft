@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jechoi </var/mail/jechoi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/05 22:06:05 by jechoi            #+#    #+#             */
-/*   Updated: 2021/03/05 22:35:32 by jechoi           ###   ########.fr       */
+/*   Created: 2021/03/05 22:35:40 by jechoi            #+#    #+#             */
+/*   Updated: 2021/03/05 22:45:26 by jechoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	void	*ret;
 
-void	*ft_memset(void *dest, int c, size_t n);
-void	*ft_bzero(void *s, size_t n);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
-void	*ft_memccpy(void *dest, const void *src, int c, size_t n);
-void	*ft_memmove(void *dest, const void *src, size_t n);
-void	*ft_memchr(const void *
-
-#endif
+	if (!dest && !src)
+		return (0);
+	ret = dest;
+	while (n--)
+		*(unsigned char *)dest++ = *(unsigned char *)src++;
+	return (ret);
+}
