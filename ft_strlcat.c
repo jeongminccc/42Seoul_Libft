@@ -6,9 +6,11 @@
 /*   By: jechoi <jechoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 17:16:34 by jechoi            #+#    #+#             */
-/*   Updated: 2021/03/07 02:20:39 by jechoi           ###   ########.fr       */
+/*   Updated: 2021/03/07 02:42:24 by jechoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {

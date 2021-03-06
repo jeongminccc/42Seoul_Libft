@@ -6,7 +6,7 @@
 /*   By: jechoi <jechoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 21:04:52 by jechoi            #+#    #+#             */
-/*   Updated: 2021/03/07 02:09:40 by jechoi           ###   ########.fr       */
+/*   Updated: 2021/03/07 02:48:09 by jechoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_atoi(const char *str)
 	ret = 0;
 	while (*str == ' ' || (9 <= *str && *str <= 13))
 		str++;
-	while (*str == '-' || *str == '+')
+	if (*str == '-' || *str == '+')
 	{
 		if (*str == '-')
 			m_cnt++;

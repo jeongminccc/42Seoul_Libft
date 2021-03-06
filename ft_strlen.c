@@ -6,11 +6,11 @@
 /*   By: jechoi <jechoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 17:13:58 by jechoi            #+#    #+#             */
-/*   Updated: 2021/03/07 02:21:25 by jechoi           ###   ########.fr       */
+/*   Updated: 2021/03/07 02:43:30 by jechoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 size_t	ft_strlen(const char *str)
 {
