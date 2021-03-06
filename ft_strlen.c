@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jechoi <jechoi@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jechoi </var/mail/jechoi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/21 15:32:15 by jechoi            #+#    #+#             */
-/*   Updated: 2020/10/21 15:38:52 by jechoi           ###   ########.fr       */
+/*   Created: 2021/03/06 17:13:58 by jechoi            #+#    #+#             */
+/*   Updated: 2021/03/06 17:14:23 by jechoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
-	int len;
+	size_t len;
 
 	len = 0;
 	while (*str)

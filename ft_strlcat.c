@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jechoi <jechoi@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jechoi </var/mail/jechoi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/27 18:08:08 by jechoi            #+#    #+#             */
-/*   Updated: 2020/10/28 17:37:20 by jechoi           ###   ########.fr       */
+/*   Created: 2021/03/06 17:16:34 by jechoi            #+#    #+#             */
+/*   Updated: 2021/03/06 17:18:03 by jechoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	unsigned int ret;
+	size_t ret;
 
 	ret = 0;
 	while (*dest && ret < size)
