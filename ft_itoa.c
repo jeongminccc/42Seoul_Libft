@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jechoi </var/mail/jechoi>                  +#+  +:+       +#+        */
+/*   By: jechoi <jechoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 00:53:49 by jechoi            #+#    #+#             */
-/*   Updated: 2021/03/07 01:11:07 by jechoi           ###   ########.fr       */
+/*   Updated: 2021/03/07 02:26:15 by jechoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" 
+#include "libft.h"
 
 static int	ft_len(int n)
 {
@@ -25,11 +25,11 @@ static int	ft_len(int n)
 	return (len);
 }
 
-char	*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
 	char			*ret;
 	unsigned int	tmp;
-	int 			len;
+	int				len;
 
 	len = ft_len(n);
 	tmp = n < 0 ? -n : n;

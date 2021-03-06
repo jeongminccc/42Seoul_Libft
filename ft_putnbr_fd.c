@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jechoi </var/mail/jechoi>                  +#+  +:+       +#+        */
+/*   By: jechoi <jechoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 01:28:09 by jechoi            #+#    #+#             */
-/*   Updated: 2021/03/07 01:34:15 by jechoi           ###   ########.fr       */
+/*   Updated: 2021/03/07 02:27:52 by jechoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	recur(int n, int fd)
+static void		recur(int n, int fd)
 {
 	if (n >= 10)
 		recur(n / 10, fd);
 	write(fd, &"0123456789"[n % 10], 1);
 }
 
-void	ft_putnbr_fd(int n, int fd)
+void			ft_putnbr_fd(int n, int fd)
 {
 	if (fd < 0)
 		return ;
