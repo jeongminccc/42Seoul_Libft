@@ -6,7 +6,7 @@
 /*   By: jechoi </var/mail/jechoi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 00:38:02 by jechoi            #+#    #+#             */
-/*   Updated: 2021/03/07 00:50:06 by jechoi           ###   ########.fr       */
+/*   Updated: 2021/03/07 01:13:19 by jechoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,21 @@ static size_t	get_str_cnt(char const *str, char c)
 	return (ret);
 }
 
-char			**ft_split(char const *str, char c)
+char			**ft_split(char const *s, char c)
 {
 	char	**ret;
 	char	*st;
 	size_t	idx;
 	size_t	word_size;
 
-	if(!(ret = (char **)malloc(sizeof(char *) * (get_str_cnt(str, c) + 1))))
+	if(!(ret = (char **)malloc(sizeof(char *) * (get_str_cnt(s, c) + 1))))
 		return (0);
 	idx = 0;
-	while (*str)
+	while (*s)
 	{
-		st = (char *)str;
+		st = (char *)s;
 		word_size = 0;
-		while (*str && *(str++) != c)
+		while (*s && *(s++) != c)
 			word_size++;
 		if (word_size == 0)
 			continue;
