@@ -3,28 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jechoi <jechoi@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jechoi </var/mail/jechoi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/28 12:09:11 by jechoi            #+#    #+#             */
-/*   Updated: 2020/10/28 17:47:18 by jechoi           ###   ########.fr       */
+/*   Created: 2021/03/06 21:04:52 by jechoi            #+#    #+#             */
+/*   Updated: 2021/03/06 21:06:40 by jechoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	is_white_space(char c)
-{
-	if (c == ' ' || (9 <= c && c <= 13))
-		return (1);
-	return (0);
-}
+#include "libft.h"
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int ret;
 	int m_cnt;
 
 	m_cnt = 0;
 	ret = 0;
-	while (is_white_space(*str))
+	while (*str == ' ' || (9 <= *str && *str <= 13))
 		str++;
 	while (*str == '-' || *str == '+')
 	{

@@ -1,24 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jechoi <jechoi@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jechoi </var/mail/jechoi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/21 20:13:31 by jechoi            #+#    #+#             */
-/*   Updated: 2020/10/21 20:16:37 by jechoi           ###   ########.fr       */
+/*   Created: 2021/03/06 21:15:51 by jechoi            #+#    #+#             */
+/*   Updated: 2021/03/06 21:17:46 by jechoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_printable(char *str)
+int	ft_isprint(int c)
 {
-	if (*str == '\0')
-		return (1);
-	while (*str)
-	{
-		if (!(*str >= ' ' && *str <= '~'))
-			return (0);
-		str++;
-	}
-	return (1);
+	return (c >= ' ' && c <= '~');
 }

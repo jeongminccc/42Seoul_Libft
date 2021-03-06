@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jechoi <jechoi@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jechoi </var/mail/jechoi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/21 20:35:41 by jechoi            #+#    #+#             */
-/*   Updated: 2020/10/21 20:36:14 by jechoi           ###   ########.fr       */
+/*   Created: 2021/03/06 21:20:34 by jechoi            #+#    #+#             */
+/*   Updated: 2021/03/06 21:21:20 by jechoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strlowcase(char *str)
+int	ft_tolower(int c)
 {
-	int pos;
-
-	pos = 0;
-	while (str[pos])
-	{
-		if ('A' <= str[pos] && str[pos] <= 'Z')
-			str[pos] += 32;
-		++pos;
-	}
-	return (str);
+	if ('A' <= c && c <= 'Z')
+		return (c + ('a' - 'A'));
+	return (c);
 }

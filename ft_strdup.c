@@ -3,30 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jechoi <jechoi@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jechoi </var/mail/jechoi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/01 17:38:23 by jechoi            #+#    #+#             */
-/*   Updated: 2020/11/01 17:55:46 by jechoi           ###   ########.fr       */
+/*   Created: 2021/03/06 21:30:47 by jechoi            #+#    #+#             */
+/*   Updated: 2021/03/06 21:32:34 by jechoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-long long		ft_strlen(char *s)
+char	*ft_strdup(const char *src)
 {
-	long long ret;
-
-	ret = 0;
-	while (s[ret])
-		ret++;
-	return (ret);
-}
-
-char			*ft_strdup(char *src)
-{
-	char			*ret;
-	long long		idx;
-	long long		len;
+	char	*ret;
+	size_t	idx;
+	size_t	len;
 
 	len = ft_strlen(src);
 	ret = (char *)malloc(sizeof(char) * (len + 1));

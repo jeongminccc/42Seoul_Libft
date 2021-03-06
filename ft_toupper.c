@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strupcase.c                                     :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jechoi <jechoi@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jechoi </var/mail/jechoi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/21 20:17:52 by jechoi            #+#    #+#             */
-/*   Updated: 2020/10/21 20:29:55 by jechoi           ###   ########.fr       */
+/*   Created: 2021/03/06 21:18:47 by jechoi            #+#    #+#             */
+/*   Updated: 2021/03/06 21:20:21 by jechoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strupcase(char *str)
+int	ft_toupper(int c)
 {
-	int pos;
-
-	pos = 0;
-	while (str[pos])
-	{
-		if ('a' <= str[pos] && str[pos] <= 'z')
-			str[pos] -= 32;
-		++pos;
-	}
-	return (str);
+	if ('a' <= c && c <= 'z')
+		return (c + ('A' - 'a'));
+	return (c);
 }

@@ -3,59 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jechoi <jechoi@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jechoi </var/mail/jechoi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/01 18:26:34 by jechoi            #+#    #+#             */
-/*   Updated: 2020/11/01 19:21:56 by jechoi           ###   ########.fr       */
+/*   Created: 2021/03/06 21:59:23 by jechoi            #+#    #+#             */
+/*   Updated: 2021/03/06 22:04:48 by jechoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-void		ft_strcat(char *dest, char *src)
+char		*ft_strjoin(char const *s1, char const *s2)
 {
-	while (*dest)
-		dest++;
-	while (*src)
-		*(dest++) = *(src++);
-	*dest = 0;
-}
+	size_t	ret_len;
+	char	*ret;
 
-long long	ft_strlen(char *s)
-{
-	long long ret;
-
-	ret = 0;
-	while (s[ret])
-		ret++;
-	return (ret);
-}
-
-char		*ft_strjoin(int size, char **strs, char *sep)
-{
-	int			idx;
-	long long	ret_len;
-	char		*ret;
-
-	if (size <= 0)
-	{
-		ret = (char *)malloc(1);
-		ret[0] = 0;
-		return (ret);
-	}
-	ret_len = 0;
-	idx = 0;
-	while (idx < size)
-		ret_len += ft_strlen(strs[idx++]);
-	ret_len += ft_strlen(sep) * (size - 1);
-	ret = (char *)malloc(sizeof(char) * (ret_len + 1));
-	ret[0] = 0;
-	idx = 0;
-	while (idx < size)
-	{
-		ft_strcat(ret, strs[idx]);
-		if ((idx++) != size - 1)
-			ft_strcat(ret, sep);
-	}
+	if (!s1 || !s2)
+		return (0);
+	ret_len = ft_strlen(s1) + ft_strlen(s2) + 1;
+	if (!(ret = (char *)malloc(ret_len)))
+		return (0);
+	ft_strlcpy(ret, s1, ret_len);
+	ft_strlcat(ret, s2, ret_len);
 	return (ret);
 }

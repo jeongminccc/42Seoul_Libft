@@ -6,7 +6,7 @@
 /*   By: jechoi </var/mail/jechoi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 17:22:53 by jechoi            #+#    #+#             */
-/*   Updated: 2021/03/06 17:30:53 by jechoi           ###   ########.fr       */
+/*   Updated: 2021/03/06 20:35:05 by jechoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,14 @@ char	*ft_strrchr(const char *str, int c)
 {
 	char	*ret;
 
+	ret = 0;
 	while (*str)
 	{
 		if (*str == (unsigned char)c)
 			ret = (char *)str;
 		str++;
 	}
-
+	if (!c)
+		return ((char *)str);
+	return (ret);
+}
