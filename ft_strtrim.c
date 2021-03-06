@@ -6,36 +6,43 @@
 /*   By: jechoi </var/mail/jechoi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 22:05:43 by jechoi            #+#    #+#             */
-/*   Updated: 2021/03/06 22:31:12 by jechoi           ###   ########.fr       */
+/*   Updated: 2021/03/07 00:37:34 by jechoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+static int	check_exist(char const *set, char find)
 {
-	size_t	start;
-	size_t	end;
+	while (*set)
+	{
+		if (*set == find)
+			return (1);
+		set++;
+	}
+	return (0);
+}
+
+char		*ft_strtrim(char const *s1, char const *set)
+{
+	size_t	len;
 	char	*ret;
+	char	*start;
+	char	*end;
 
 	if (!s1)
 		return (0);
 	if (!set)
 		return (ft_strdup(s1));
-	start = 0;
-	end = ft_strlen(s1);
-	while (s1[start] && ft_strchr(set, s1[start]))
+	start = (char *)s1;
+	end = start + ft_strlen(s1);
+	while (*start && check_exist(set, *start))
 		start++;
-	while (s1[end - 1] && ft_strchr(set, s1[end - 1]))
-	{
-		if (end - 1 < 1)
-			break ;
+	while (start < end && check_exist(set, *(end - 1)))
 		end--;
-	}
-	if (start > end)
-		return (ft_strdup(""));
-	if (!(ret = (char *)malloc(sizeof(char) * (end - start + 1))))
+	len = end - start + 1;
+	if (!(ret = (char *)malloc(sizeof(char) * len)))
 		return (0);
-	ft_strlcpy(ret, s1 + start, end - start + 1);
+	ft_strlcpy(ret, start, len);
 	return (ret);
 }

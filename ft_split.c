@@ -3,76 +3,56 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jechoi <jechoi@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: jechoi </var/mail/jechoi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/02 17:08:34 by jechoi            #+#    #+#             */
-/*   Updated: 2020/11/04 17:12:45 by jechoi           ###   ########.fr       */
+/*   Created: 2021/03/07 00:38:02 by jechoi            #+#    #+#             */
+/*   Updated: 2021/03/07 00:50:06 by jechoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-int			is_charset(char c, char *charset)
+static size_t	get_str_cnt(char const *str, char c)
 {
-	while (*charset)
-	{
-		if (c == *charset)
-			return (1);
-		charset++;
-	}
-	return (0);
-}
-
-long long	get_str_cnt(char *str, char *charset)
-{
-	long long	ret;
-	int			is_start;
+	size_t	ret;
+	int		is_start;
 
 	ret = 0;
 	is_start = 0;
 	while (*str)
 	{
-		if (!is_charset(*str, charset) && !is_start)
+		if (*str != c && !is_start)
 		{
 			ret++;
 			is_start = 1;
 		}
-		else if (is_charset(*str, charset))
+		else if (*str == c)
 			is_start = 0;
 		str++;
 	}
 	return (ret);
 }
 
-void		ft_strncpy(char *dest, char *src, long long n)
+char			**ft_split(char const *str, char c)
 {
-	long long idx;
+	char	**ret;
+	char	*st;
+	size_t	idx;
+	size_t	word_size;
 
-	idx = 0;
-	while (idx++ < n)
-		*(dest++) = *(src++);
-	*dest = 0;
-}
-
-char		**ft_split(char *str, char *charset)
-{
-	char		**ret;
-	char		*st;
-	long long	idx;
-	long long	word_size;
-
-	ret = (char **)malloc(sizeof(char *) * (get_str_cnt(str, charset) + 1));
+	if(!(ret = (char **)malloc(sizeof(char *) * (get_str_cnt(str, c) + 1))))
+		return (0);
 	idx = 0;
 	while (*str)
 	{
-		st = str;
+		st = (char *)str;
 		word_size = 0;
-		while (*str && !is_charset(*(str++), charset))
+		while (*str && *(str++) != c)
 			word_size++;
 		if (word_size == 0)
 			continue;
 		ret[idx] = (char *)malloc(sizeof(char) * (word_size + 1));
-		ft_strncpy(ret[idx++], st, word_size);
+		ft_strlcpy(ret[idx++], st, word_size + 1);
 	}
 	ret[idx] = 0;
 	return (ret);

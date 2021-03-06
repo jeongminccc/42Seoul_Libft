@@ -6,7 +6,7 @@
 /*   By: jechoi </var/mail/jechoi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 22:06:05 by jechoi            #+#    #+#             */
-/*   Updated: 2021/03/06 21:35:32 by jechoi           ###   ########.fr       */
+/*   Updated: 2021/03/07 00:52:41 by jechoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,11 @@ int		ft_toupper(int c);
 int		ft_tolower(int c);
 void	*ft_calloc(size_t cnt, size_t size);
 char	*ft_strdup(const char *src);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strtrim(char const *s1, char const *set);
+char	**ft_split(char const *str, char c);
+char	*ft_itoa(int n);
+
 
 #endif
