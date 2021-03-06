@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jechoi </var/mail/jechoi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/05 22:45:37 by jechoi            #+#    #+#             */
-/*   Updated: 2021/03/06 16:07:04 by jechoi           ###   ########.fr       */
+/*   Created: 2021/03/06 16:07:29 by jechoi            #+#    #+#             */
+/*   Updated: 2021/03/06 16:17:26 by jechoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	while (n--)
+	unsigned char	*tmp1;
+	unsigned char	*tmp2;
+
+	if (!dest && !src)
+		return (0);
+	tmp1 = (unsigned char *)dest;
+	tmp2 = (unsigned char *)src;
+	if (dest < src)
 	{
-		*(unsigned char *)dest++ = *(unsigned char *)src;
-		if (*(unsigned char *)src == (unsigned char)c)
-			return (dest);
-		src++;
+		while (n--)
+			*tmp1++ = *tmp2++;
 	}
-	return (0);
+	else
+	{
+		tmp1 += n;
+		tmp2 += n;
+		while (n--)
+			*(--tmp1) = *(--tmp2);
+	}
+	return (dest);
 }
+
