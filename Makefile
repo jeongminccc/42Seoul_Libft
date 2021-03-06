@@ -1,24 +1,25 @@
+NAME = libft.a
+HEADER = libft.h
+
 CC = gcc
-
 CFLAGS = -Wall -Wextra -Werror
+AR = ar rcs
 
-SRCS = main.c 
+SRCS = $(wildcard *.c)
 OBJS = $(SRCS:.c=.o)
 
-TARGET = do-op
+all : $(NAME)
 
-all : $(TARGET)
+%.o : %.c $(HEADER)
+		$(CC) $(CFLAGS) -c $< -o $@
 
-%.o : %.c
-		$(CC) $(CFLAGS) -c $<
-
-$(TARGET) : $(OBJS)
-		$(CC) $(CFLAGS) -o $@ $(OBJS)
+$(NAME) : $(OBJS)
+		$(AR) $@ $^
 
 clean :
 		rm -f $(OBJS)
 
 fclean : clean
-		rm -f $(TARGET)
+		rm -f $(NAME)
 		
 re : fclean all
